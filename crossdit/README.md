@@ -2,6 +2,14 @@
 
 ## How to's
 
+Requirements Python 3.4.7
+
+To run this successfully you have to change the absolute path of the image classification model to where it will be stored on your machine.
+
+In the same way you will have to change the path where the results from the image classification will be stored.
+
+The changes have to be made in line 19 and 31 of test.py
+
 ###Installation
 
 ```bash

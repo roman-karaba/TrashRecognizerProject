@@ -8,6 +8,7 @@ export default class TrashCamera extends React.Component {
   state = {
     hasCameraPermission: null,
     type: Camera.Constants.Type.back,
+    bodyText: ""
   };
 
   async componentDidMount() {
@@ -30,7 +31,6 @@ export default class TrashCamera extends React.Component {
         }
       })
     });
-
     return response.json();
   }
 
@@ -46,6 +46,7 @@ export default class TrashCamera extends React.Component {
       console.log('Sending photo for evaluation');
       const response = await this.sendPicture(photo);
       console.log(response);
+      this.setState({bodyText:JSON.stringify(response)});
     }
   }
 
@@ -88,7 +89,8 @@ export default class TrashCamera extends React.Component {
           <Button 
             title="Take Photo"
             style={styles.photobtn}
-            onPress={this.takePicture.bind(this)}/>     
+            onPress={this.takePicture.bind(this)}/>
+          <Text>{this.state.bodyText}</Text>
         </View>
       );
     }
